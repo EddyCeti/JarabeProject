@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-10-20T21:18:47.682Z" agent="5.0 (Windows)" etag="dmdsE9VmYN5kaZPkYFrl" version="13.8.1" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-20T21:20:17.544Z" agent="5.0 (Windows)" etag="syY_YQOTIBRio3c0TK7S" version="13.8.1" type="github">
   <diagram id="GH6W7SEznlXIR2MrJyil" name="Page-1">
     <mxGraphModel dx="1447" dy="863" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -101,6 +101,12 @@
         </mxCell>
         <mxCell id="cnqzPTQE9FA1bivrmR1H-59" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.navigation.scrollBar;strokeColor=#999999;barPos=20;fillColor2=#99ddff;strokeColor2=none;direction=north;fillColor=#FFFFFF;" parent="cnqzPTQE9FA1bivrmR1H-54" vertex="1">
           <mxGeometry x="133" width="20" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="M8kgBegOaD-96C8BDJ6E-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.439;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="M8kgBegOaD-96C8BDJ6E-2" target="cnqzPTQE9FA1bivrmR1H-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="M8kgBegOaD-96C8BDJ6E-2" value="&lt;h1&gt;Componente 10: CrearProducto&lt;br&gt;&lt;/h1&gt;&lt;p&gt;Componente para agrerar un producto nuevo al inventario.&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="555" y="1020" width="310" height="110" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
