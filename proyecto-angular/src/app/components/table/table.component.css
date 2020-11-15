@@ -1,0 +1,18 @@
+.active{
+    background: #b6d0ff !important;
+} 
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    margin-top: 10px;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+    display: block;
+}
+
+
+.table{
+    width: 700px;
+}

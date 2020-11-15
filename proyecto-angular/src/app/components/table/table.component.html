@@ -1,0 +1,29 @@
+
+<div class="table-wrapper-scroll-y my-custom-scrollbar d-flex justify-content-center">
+  <table class="table table-bordered mb-0 table-hover">
+      <thead>
+        <tr class="bg-light">
+          <th scope="col">Id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Cantidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productos; let i = index"
+        (click)="getItem(producto.name,i);"
+        [ngClass]='{"active": active == i}'>
+          <td>{{producto.id}}</td>
+          <td>{{producto.name}}</td>
+          <td>{{producto.quantity}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<form>
+  <div class="form-row mt-4 mb-4 d-flex justify-content-between">
+    <div class="col-5">
+      <input type="number" class="form-control" placeholder="Agregar o remover">
+    </div>
+  </div>
+</form>
