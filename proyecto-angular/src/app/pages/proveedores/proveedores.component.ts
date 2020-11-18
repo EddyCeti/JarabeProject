@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProvidersService } from '../../services/providers.service';
 
 @Component({
   selector: 'app-proveedores',
@@ -6,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./proveedores.component.css']
 })
 export class ProveedoresComponent implements OnInit {
-
-  constructor() { }
-  providers = ['1','2','3','1'];
+  provedores = [];
+  constructor( providersService :ProvidersService) { 
+    this.provedores = providersService.getProviders();
+  }
+    
   ngOnInit(): void {
   }
 

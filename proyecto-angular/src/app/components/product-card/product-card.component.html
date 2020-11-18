@@ -1,20 +1,18 @@
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top img-thumbnail" src="../assets/placeholder.png" alt="Card image cap">
+<div class="card shadow" style="width: 18rem;">
+    <img class="card-img-top img-thumbnail" src="../assets/placeholder.png" alt="Card image cap" (click) = 'navigate()'>
     
     <div class="btn-group">
         <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Opciones
         </button>
         <div class="dropdown-menu shadow"> 
-          <a href="#" class="dropdown-item" >Editar</a>
-          <a href="#" class="dropdown-item" >Eliminar</a>
+          <a [routerLink] = '["/producto-editar",item.id]' class="dropdown-item" >Editar</a>
+          <a [routerLink] = '["/producto-eliminar",item.id]' class="dropdown-item" >Eliminar</a>
         </div>
     </div>
 
-    <div class="card-body">
-      <h5 class="card-title">Nombre Producto</h5>
-    </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Precio</li>
+      <li class="list-group-item"><a class="card-title"  [routerLink] = '["/producto-detalles",item.id]'>{{item.name}}</a></li>
+      <li class="list-group-item">{{item.cost}}</li>
     </ul>
 </div>

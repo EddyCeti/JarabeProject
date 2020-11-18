@@ -1,0 +1,29 @@
+<div class="container d-flex shadow flex-column">
+        
+    <div class="row w-100 d-flex">
+        <div class="col-5 p-3">
+            <img src="../assets/placeholder.png" class="p3 img-thumbnail "> 
+        </div>
+        <div class="col">
+            <h1 class="col-12 text-capitalize">{{provider.name}}</h1>
+            <p class="col-12">{{provider.description}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <p class="text-center"><strong>RFC:</strong> {{provider.rfc}}</p>
+        </div>
+        <div class="col-12">
+            <p class="text-center"><strong>Id:</strong> {{provider.id}}</p>
+        </div>
+        <p class="ml-4 "><strong>Productos</strong></p>
+        <div class="col-12 justify-content-center d-flex table-wrapper-scroll-y my-custom-scrollbar">
+            
+            <ul class="list-group w-100">
+                <li class="list-group-item" *ngFor="let provedor of provider.products">{{provedor}}</li>
+                
+              </ul>
+        </div>
+    </div>
+
+</div>

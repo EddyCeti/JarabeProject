@@ -1,20 +1,17 @@
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top img-thumbnail" src="../assets/placeholder.png" alt="Card image cap">
+<div class="card shadow" style="width: 18rem;">
+    <img class="card-img-top img-thumbnail" src="../assets/placeholder.png" alt="Card image cap" (click)='navigate()'>
     
     <div class="btn-group">
         <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Opciones
         </button>
         <div class="dropdown-menu shadow"> 
-          <a href="#" class="dropdown-item" >Editar</a>
-          <a href="#" class="dropdown-item" >Eliminar</a>
+          <a [routerLink] = '["/provedor-editar",item.id]' class="dropdown-item" >Editar</a>
+          <a [routerLink] = '["/provedor-eliminar",item.id]' class="dropdown-item" >Eliminar</a>
         </div>
     </div>
-
-    <div class="card-body">
-      <h5 class="card-title">Nombre Proveedor</h5>
-    </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">RFC</li>
+      <li class="list-group-item"><a class="card-title" [routerLink] = '["/provedor-detalles",item.id]'>{{item.name}}</a></li>
+      <li class="list-group-item">{{item.rfc}}</li>
     </ul>
 </div>
