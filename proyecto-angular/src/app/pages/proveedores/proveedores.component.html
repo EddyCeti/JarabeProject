@@ -1,7 +1,11 @@
 <div class="container">
     <div class="row">
         <div class="col-7 d-flex display-row w-100">
-            <app-searchbar class="m-2 col-11"></app-searchbar> 
+            <nav class="navbar d-flex justify-content-end m-2 col-11"> 
+                <form>
+                  <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" [(ngModel)] = 'searchInput' (keyup) = 'filter()' [ngModelOptions] ="{standalone: true}"> 
+                </form>
+          </nav>
         </div>
         <div class="col-5 mt-3">
             <a routerLink='/provedor-agregar' class="float col-1">+</a>

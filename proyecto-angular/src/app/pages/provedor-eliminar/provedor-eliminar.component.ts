@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProvidersService } from 'src/app/services/providers.service';
 
 @Component({
   selector: 'app-provedor-eliminar',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProvedorEliminarComponent implements OnInit {
 
-  constructor() { }
+  parentRouteId;
+
+  constructor( private providersService: ProvidersService, route :  ActivatedRoute ) {
+    route.params.subscribe( params => {
+      this.parentRouteId =  parseInt(params["id"]);
+    });
+  }
 
   ngOnInit(): void {
+  }
+
+  delete(){
+    this.providersService.deleteRequest(this.parentRouteId);
   }
 
 }

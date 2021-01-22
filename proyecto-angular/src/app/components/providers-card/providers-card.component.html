@@ -1,5 +1,5 @@
-<div class="card shadow" style="width: 18rem;">
-    <img class="card-img-top img-thumbnail" src="../assets/placeholder.png" alt="Card image cap" (click)='navigate()'>
+<div class="card shadow" style="width: 18rem;" *ngIf = " hide == false">
+    <img class="card-img-top img-thumbnail" src="{{imageRoute}}" alt="Card image cap" (click)='navigate()'>
     
     <div class="btn-group">
         <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -12,6 +12,6 @@
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item"><a class="card-title" [routerLink] = '["/provedor-detalles",item.id]'>{{item.name}}</a></li>
-      <li class="list-group-item">{{item.rfc}}</li>
+      <li class="list-group-item">Telefono: {{item.tel}}</li>
     </ul>
 </div>

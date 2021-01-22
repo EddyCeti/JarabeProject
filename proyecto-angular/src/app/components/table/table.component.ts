@@ -1,16 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { provideRoutes } from '@angular/router';
+import { ProductsService } from 'src/app/services/products.service';
+import { GraphComponent } from '../graph/graph.component';
 
 @Component({
+  providers:[GraphComponent],
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
 
-  constructor() { }
+  inputStock: any;
 
-  item;
-  active;
+  item: any;
+  active:  any;
+  productos  = [];
+  postData = {};
+
+  constructor( private productsService: ProductsService, private comp: GraphComponent  ) { 
+      productsService.getRequest().subscribe((data:any[]) =>  {
+          this.productos  = data;
+          this.productsService.setActiveTable(this.productos[this.productos.length - 1].id);
+          
+      });
+      
+   }
+
+  
+
+  /*
   productos = [
     {
       id: 1,
@@ -72,14 +91,32 @@ export class TableComponent implements OnInit {
     }
   ];
 
+  */
 
   getItem(item:any,i:number){
     this.item =  item;
     this.active = i;
-    console.log(this.item);
-  }
+    this.productsService.setActiveTable(item);
+    this.comp.ngOnInit();
+    this.comp.ngAfterViewInit();
+    
+    }
 
   ngOnInit(): void {
+  }
+
+  applyChanges(){
+    this.productos.forEach(element => {
+      if( this.item == element.id){
+        this.postData = element;
+        this.postData["quantity"] =  this.postData["quantity"] + this.inputStock ;
+      }
+    });
+    this.productsService.patchRequest(this.item, this.postData);
+    this.postData =  null;
+    this.postData = { quantity: this.inputStock, productoId: this.item };
+    this.productsService.postStockMovements(this.item,this.postData);
+    this.comp.ngOnInit();
   }
 
 }

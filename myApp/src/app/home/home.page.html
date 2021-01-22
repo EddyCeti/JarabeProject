@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Productos
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar showCancelButton="always" mode= 'ios'
+    [(ngModel)]="miBuscador"
+    [showCancelButton]="miStringDeCancell"
+    (ionInput)="onInput($event)"
+    (ionCancel)="onCancel($event)"
+    ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <ion-list #Items>
+      <ion-item *ngFor = 'let product of products' (click) = ' goToProductDetails(product.id)'>
+        <ion-label>{{product.name}}</ion-label>
+        <ion-thumbnail>
+          <img [src]= '"http://localhost:3000/api/storages/images/download/" +  product.id.toString()  +  ".jpg"'>
+        </ion-thumbnail>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

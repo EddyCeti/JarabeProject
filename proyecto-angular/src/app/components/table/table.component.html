@@ -1,6 +1,6 @@
 
 <div class="table-wrapper-scroll-y my-custom-scrollbar d-flex justify-content-center">
-  <table class="table table-bordered mb-0 table-hover">
+  <table class="table table-bordered mb-0 table-hover  w-100">
       <thead>
         <tr class="bg-light">
           <th scope="col">Id</th>
@@ -10,7 +10,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let producto of productos; let i = index"
-        (click)="getItem(producto.name,i);"
+        (click)="getItem(producto.id,i);"
         [ngClass]='{"active": active == i}'>
           <td>{{producto.id}}</td>
           <td>{{producto.name}}</td>
@@ -23,7 +23,12 @@
 <form>
   <div class="form-row mt-4 mb-4 d-flex justify-content-between">
     <div class="col-5">
-      <input type="number" class="form-control" placeholder="Agregar o remover">
+      <input type="number" class="form-control" placeholder="Agregar o remover"  [(ngModel)] = 'inputStock' [ngModelOptions]  = "{standalone : true}">
+     
+    </div>
+    <div  class="col 5">
+      <button  class="btn btn-primary" (click) =  'applyChanges()'>Aplicar</button>
     </div>
   </div>
 </form>
+

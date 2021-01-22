@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title >Producto</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-segment [(ngModel)]="menu" color = 'primary' (ionChange)="segmentChanged($event)" scrollable>
+    <ion-segment-button  value="Informacion">
+      <ion-label>Informacion</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Grafica">
+      <ion-label>Grafica</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+ <app-producto-id  *ngIf = 'menu == "Informacion"' [id] = "id"></app-producto-id>
+<app-grafica *ngIf  = 'menu == "Grafica"' [id] = "id"></app-grafica>
+</ion-content>

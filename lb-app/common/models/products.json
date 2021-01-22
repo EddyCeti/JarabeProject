@@ -1,0 +1,48 @@
+{
+  "name": "products",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": false,
+      "default": ""
+    },
+    "cost": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "quantity": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {
+    "providers": {
+      "type": "hasMany",
+      "model": "providers",
+      "foreignKey": "",
+      "through": "productsProviders"
+    },
+    "stockMovements": {
+      "type": "hasMany",
+      "model": "StockMovements",
+      "foreignKey": "productId",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

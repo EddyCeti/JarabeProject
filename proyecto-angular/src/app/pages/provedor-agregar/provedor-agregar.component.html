@@ -1,4 +1,62 @@
-<div class="container-fluid">
-    <p>provedor-agregar works!</p>
 
+<div class="container shadow">
+    <h3 class="text-center p2">Agregar Proveedor</h3>
+    <div class="row">
+        <div class="col-8">
+            <form class="p-2">
+                <div class="form-row justify-content-center">
+                    <div class="form-group col-md-5">
+                      <label for="inputName">Nombre</label>
+                      <input type="text" class="form-control" [(ngModel)]='name' [ngModelOptions] = '{standalone: true}'>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="inputPrice">RFC</label>
+                      <input type="txt" class="form-control"  [(ngModel)]='RFC' [ngModelOptions] = '{standalone: true}'>
+                    </div>
+                </div>
+                  <div class="form-row  justify-content-center">
+                    <div class="form-group col-md-6">
+                        <label for="inputDescription">Telefono</label>
+                        <input type="tel" class="form-control"  [(ngModel)]='tel' [ngModelOptions] = '{standalone: true}'>
+                    </div>
+                  </div>
+                <div class="form-group col-md-12">
+                    <label for="inputDescription">Descripcion</label>
+                    <textarea type="text" class="form-control"  [(ngModel)]='description' [ngModelOptions] = '{standalone: true}'></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="col-4 justify-content-center p-3">
+            <img src="../../../assets/placeholder.png" class="p3 img-thumbnail">
+            <div class="btn btn-primary col-12 mt-3" >
+                <span>Agregar Imagen</span>
+                <input type="file" (change) = "fileSelected($event.target.files)">
+            </div>
+        </div>
+        <div  class="col p-3 justify-content-center d-flex">
+            <input type="button" class="btn btn-primary" value="Agregar" (click)="createProvider()" data-target = "#model" data-toggle = "modal" >   
+
+            <!--MODAL-->
+
+            <div class="modal fade" id="model" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Anuncio.</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Proveedor Agregado con exito.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+    </div>
 </div>

@@ -1,3 +1,4 @@
+
 <div class="container shadow">
     <h3 class="text-center p2">Agregar Proucto</h3>
     <div class="row">
@@ -6,35 +7,70 @@
                 <div class="form-row justify-content-center">
                     <div class="form-group col-md-5">
                       <label for="inputName">Nombre</label>
-                      <input type="text" class="form-control" id="inputName">
+                      <input type="text" class="form-control" [(ngModel)]='name' [ngModelOptions] = '{standalone: true}'>
                     </div>
                     <div class="form-group col-md-3">
                       <label for="inputPrice">Precio</label>
-                      <input type="number" class="form-control" id="inputPrice">
+                      <input type="number" class="form-control"  [(ngModel)]='cost' [ngModelOptions] = '{standalone: true}'>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="inputQuantity">Cantidad Stock</label>
+                      <input type="number" class="form-control"  [(ngModel)]='quantity' [ngModelOptions] = '{standalone: true}'>
                     </div>
                 </div>
                   <div class="form-row  justify-content-center">
                     <div class="form-group col-md-6">
                         <label for="inputDescription">Descripcion</label>
-                        <textarea type="text" class="form-control" id="inputDescription" rows="3" ></textarea>
+                        <textarea type="text" class="form-control"  [(ngModel)]='description' [ngModelOptions] = '{standalone: true}' ></textarea>
                     </div>
                   </div>
                   <div class="form-row justify-content-center">
                     <div class="form-group col-md-6">
                         <label for="inputProviders">Provedor</label>
-                        <select class="custom-select" multiple id="inputProviders">
+                        <!-- <select class="custom-select" multiple id="inputProviders">
                             <option *ngFor='let provedor of provedores'>{{provedor.name}}</option>
-                        </select>
+                        </select> -->
+                            <div class="form-check">
+                                <div *ngFor = 'let provider of providersList'>
+                                    <input class="form-check-input" type="checkbox" value="" id  = "{{provider.id}}" (change)="checkBoxValue($event)"> 
+                                    <label class="form-check-label">{{provider.name}}</label>
+                                </div>
+                            </div>   
                       </div>
                   </div>
             </form>
         </div>
+
         <div class="col-4 justify-content-center p-3">
             <img src="../../../assets/placeholder.png" class="p3 img-thumbnail">
-            <div class="btn btn-primary col-12 mt-3" >
+            <div class="btn btn-primary col-12 mt-3"   >
                 <span>Agregar Imagen</span>
-                <input type="file">
+                <input type="file"  (change) = "fileSelected($event.target.files)">
             </div>
         </div>
+        <div  class="col p-3 justify-content-center d-flex">
+            <input type="button" class="btn btn-primary" value="Agregar"  (click)="createProduct()"  data-toggle="modal" data-target = "#model">
+          
+          
+            <!-- MODAL -->
+            <div class="modal fade" id="model" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Anuncio.</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                          Producto Agregado con exito.
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div> 
     </div>
 </div>

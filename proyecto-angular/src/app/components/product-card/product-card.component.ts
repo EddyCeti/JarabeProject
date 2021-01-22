@@ -1,3 +1,4 @@
+import { isNgTemplate } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
@@ -10,9 +11,13 @@ export class ProductCardComponent implements OnInit {
   
   constructor( private router: Router) { }
   
-  @Input() item: any = []; // decorate the property with @Input()
   
+
+  @Input() item: any = []; // decorate the property with @Input()
+  imageRoute: string;
+  hide: boolean = false;
   ngOnInit(): void {
+    this.imageRoute ='http://localhost:3000/api/storages/images/download/' + this.item.id +  '.jpg';
   }
   
   navigate(){  

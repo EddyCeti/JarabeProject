@@ -1,0 +1,37 @@
+{
+  "name": "providers",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "tel": {
+      "type": "number",
+      "required": true
+    },
+    "RFC": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "products": {
+      "type": "hasMany",
+      "model": "products",
+      "foreignKey": "",
+      "through": "productsProviders"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

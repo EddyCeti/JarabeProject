@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { ProvidersCardComponent } from 'src/app/components/providers-card/providers-card.component';
 import { ProvidersService } from '../../services/providers.service';
 
 @Component({
@@ -8,11 +9,25 @@ import { ProvidersService } from '../../services/providers.service';
 })
 export class ProveedoresComponent implements OnInit {
   provedores = [];
+  searchInput: string;
+  @ViewChildren(ProvidersCardComponent) childrenCard: QueryList<ProvidersCardComponent>;
+
+
   constructor( providersService :ProvidersService) { 
-    this.provedores = providersService.getProviders();
+    providersService.getRequest().subscribe((data:any[]) => {
+      this.provedores = data;
+    });
   }
     
   ngOnInit(): void {
   }
 
+
+  filter(){
+
+    this.childrenCard.forEach(element => {
+      const shouldShow  = element.item.name.toLowerCase().indexOf(this.searchInput.toLocaleLowerCase()) > -1;
+      element.hide = shouldShow ? false : true ;      
+    });
+  }
 }
