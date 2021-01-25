@@ -59,6 +59,13 @@ export class ProductoIdComponent implements OnInit {
     console.log('Cantidad Actual: ' + this.product.quantity);
     this.productsService.postProductChange(this.product,this.product.id).subscribe((data:any)  =>  {
       console.log(data);
+      let PostData = { quantity : this.product.quantity , productId: this.product.id}
+      this.productsService.postHistoricRequest(this.product.id,PostData).subscribe((data:any[]) => {
+        console.log(data);
+      },
+      err => {
+        console.log(err);
+      });
     },
     error  => {
       console.log(error);

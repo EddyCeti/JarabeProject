@@ -27,7 +27,7 @@ export class GraficaComponent implements OnInit {
   private  pieChart: Chart;
 
 
-  constructor(private productsService: ProductsService, public datepipe: DatePipe) { 
+  constructor(private productsService: ProductsService) { 
     
   
   }
@@ -44,8 +44,9 @@ export class GraficaComponent implements OnInit {
     
     this.historic.forEach(element => {
       console.log("date",element);
-      //let date =  this.datepipe.transform(element.date, 'dd/MM/yyyy');
-      this.labels.push("date.toString()");
+      let date =  element.date;
+      date = date.slice(0,10)
+      this.labels.push(date.toString());
       this.data.push(element.quantity);
     });
    

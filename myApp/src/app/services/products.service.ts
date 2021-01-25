@@ -76,6 +76,10 @@ export class ProductsService {
     return this.httpClient.get("http://localhost:3000/api/StockMovements");
   }
 
+  postHistoricRequest(id:number,data:any){
+    return this.httpClient.post("http://localhost:3000/api/products/" + id + "/stockMovements",data);
+  }
+
   getProvidersRequest(){
     return this.httpClient.get("http://localhost:3000/api/providers");
   }
